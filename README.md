@@ -3,6 +3,7 @@
 ## 📌 Features
 - User Registration
 - Product API
+- Payment API
 - Async FastAPI + Tortoise ORM
 
 ## 🛠 Tech Stack
