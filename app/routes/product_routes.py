@@ -4,7 +4,7 @@ from app.services.product_service import create_product, get_products, update_pr
 
 
 
-router = APIRouter(tags=["payments"])
+router = APIRouter(tags=["products"])
 
 
 @router.get("/product")
