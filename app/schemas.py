@@ -24,7 +24,9 @@ class PaymentCreate(BaseModel):
     method:str
 
 
-    
+class PaymentStatusUpdate(BaseModel):
+    status:str
+
 
 
 

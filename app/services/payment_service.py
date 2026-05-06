@@ -1,15 +1,18 @@
 from app.models import Payment
 from app.models import User
+from tortoise.exceptions import DoesNotExist
 
 
 
 async def create_payment(data):
-    user=await User.get(id=data.user_id)
-
-
+    try:
+        user = await User.get(id=data.user_id)
+    except DoesNotExist:
+        return {"error":"user not found"}
+    
     payment=await Payment.create(
         user=user,
-        order_id=data.order_id,
+        order_id = data.order_id,
         amount = data.amount,
         method = data.method,
         status = "pending"
@@ -26,6 +29,8 @@ async def get_payments():
 
 async def get_payment(payment_id: int):
     return await Payment.get(id = payment_id)
+
+
 
 
 async def update_payment_status(payment_id: int, status: str):

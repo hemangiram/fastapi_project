@@ -1,10 +1,12 @@
 from fastapi import APIRouter
-from app.schemas import PaymentCreate
+from app.schemas import PaymentCreate, PaymentStatusUpdate
 from app.services.payment_service import (
     create_payment,
       get_payment,
         get_payments,
-          update_payment_status)
+          update_payment_status
+          )
+
 
 router = APIRouter(prefix="/payments", tags=["payments"])
 
@@ -29,8 +31,11 @@ async def single_payment(payment_id:int):
 
 
 @router.put("/{payment_id}/status")
-async def change_status(payment_id:int, status: str):
-    return await update_payment_status(payment_id, status)
+async def change_status(payment_id:int, data:PaymentStatusUpdate):
+    return await update_payment_status(payment_id, data.status)
+
+
+
 
 
 
