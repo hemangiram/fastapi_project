@@ -19,16 +19,6 @@ class Product(models.Model):
 
 
 
-class Payment(models.Model):
-    id = fields.IntField(pk=True)
-    user = fields.ForeignKeyField("models.User", related_name="payments")
-    order_id = fields.IntField()
-    amount = fields.FloatField()
-    method = fields.CharField(max_length=50)
-    status = fields.CharField(max_length=20, default="pending")
-
-
-
 
 
 
