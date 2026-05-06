@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from app.routes.user_routes import router as user_router
 from app.routes.product_routes import router as product_router
+from app.routes.payment_routes import router as payment_router
 
 
 
@@ -11,6 +12,7 @@ app = FastAPI()
 # register router
 app.include_router(user_router)
 app.include_router(product_router)
+app.include_router(payment_router)
 
 
 
